@@ -81,24 +81,27 @@
 			endif;
 		}
 
-		function delete_portfolio($id){
-			$this->portfolio_model->delete($id);
-			redirect('portfolio');
-		}
-
-		function delete_file($id=""){
-			if($param !=""):
-				$this->db->where('portfolio_id',$param);
+		function delete_portfolio($id=""){
+			if($id !=""):
+				$this->db->where('portfolio_id',$id);
 				$dt_portfolio=$this->db->get('tb_portfolio');
 
 				$file=$dt_portfolio->row()->portfolio_image;
+ 				
+ 				//location image
+				$location=$_SERVER['DOCUMENT_ROOT'];
+				$path=$location.'/company/';
+				
+				//location specific for image
+				$image=$path.$file;
+				unlink($image);
 
-				$location=$_SERVER['DOCUMENT_ROOT'].'/bha_prof/';
-				$path=$location.$file;
+				//delete data database
 
-				//unlink($path);
-
-				echo print_r($path);
+				$this->portfolio_model->delete($id);
+				redirect('portfolio');
+			else:
+				redirect('/');
 			endif;
 		}
 	}
