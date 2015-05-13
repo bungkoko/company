@@ -4,12 +4,18 @@
 			parent::__construct();
 			$this->load->model('services_model');
 			$this->load->model('contacts_model');
+			$this->load->model('portfolio_model');
+			$this->load->model('team_model');
 		}
 
 		function index(){
-			$data['data_service']=$data['list_data']=$this->services_model->all_service();
+			$data['data_service']=$this->services_model->all_service();
+			$data['data_portfolio']=$this->portfolio_model->list_portfolio();
+			$data['data_team']=$this->team_model->list_data();
 			$this->load->view('index',$data);
 		}
+
+
 
 		function contact(){
 			if($this->input->post('submit')):

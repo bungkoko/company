@@ -154,133 +154,24 @@
       	<div class="twelve columns">
 
             <div id="portfolio-wrapper" class="bgrid-fourth s-bgrid-third mob-bgrid-half group">
-
+            <?php foreach($data_portfolio->result() as $data):?>
           	   <div class="bgrid item">
                   <div class="item-wrap">
 
                      <a href="portfolio.html">
-                        <img src="images/portfolio/grizzly.jpg" alt="Grizzly">
+                        <img src="<?php echo base_url().'/upload/portfolio/'.$data->portfolio_image;?>" alt="Grizzly">
                         <div class="overlay"></div>                       
                         <div class="portfolio-item-meta">
-          					      <h5>Grizzly</h5>
+          					      <h5><?php echo $data->portfolio_subject;?></h5>
                               <p>Photography</p>
           					</div>                         
                      </a>
 
                   </div>
           		</div> <!-- /item -->
+            <?php endforeach;?>
 
-               <div class="bgrid item">
-                  <div class="item-wrap">
-
-                     <a href="portfolio.html">
-                        <img src="images/portfolio/hotel.jpg" alt="Hotel Sign">
-                        <div class="overlay">
-                        	<div class="portfolio-item-meta">
-          					      <h5>Hotel Sign</h5>
-                              <p>Webdesign</p>
-          					   </div>
-                        </div>                        
-                     </a>
-
-                  </div>
-          		</div> <!-- /item -->
-
-               <div class="bgrid stack item">
-                  <div class="item-wrap">
-
-                     <a href="portfolio.html">
-                        <img src="images/portfolio/beetle.jpg" alt="Beetle">                        
-                        <div class="overlay">
-                        	<div class="portfolio-item-meta">
-          					      <h5>Beetle</h5>
-                              <p>Branding</p>
-          					   </div>
-                        </div>                        
-                     </a>
-
-                  </div>
-          		</div> <!-- /item -->
-
-               <div class="bgrid item">
-                  <div class="item-wrap">
-
-                     <a href="portfolio.html">
-                        <img src="images/portfolio/banjo-player.jpg" alt="Banjo Player">
-                        <div class="overlay">
-                        	<div class="portfolio-item-meta">
-          					      <h5>Banjo Player</h5>
-                              <p>Videography</p>
-          					   </div>
-                        </div>                       
-                     </a>
-
-                  </div>
-          		</div> <!-- /item -->
-
-               <div class="bgrid item">
-                  <div class="item-wrap">
-
-                     <a href="portfolio.html">
-                     	<img src="images/portfolio/coffee.jpg" alt="Coffee Cup">
-                       	<div class="overlay">
-                       		<div class="portfolio-item-meta">
-          					      <h5>Coffee Cup</h5>
-                              <p>Photography</p>
-          					   </div>
-                       	</div>                        
-                     </a>
-
-                  </div>
-          		</div> <!-- /item -->
-
-               <div class="bgrid item">
-                  <div class="item-wrap">
-
-                     <a href="portfolio.html">
-                        <img src="images/portfolio/farmerboy.jpg" alt="Farmerboy">
-                        <div class="overlay">
-                        	<div class="portfolio-item-meta">
-          					      <h5>Farmerboy</h5>
-                              <p>Branding</p>
-          					   </div>
-                        </div>                        
-                     </a>
-
-                  </div>
-          		</div> <!-- /item -->
-
-               <div class="bgrid item">
-                  <div class="item-wrap">
-
-                     <a href="portfolio.html">                        
-                        <img src="images/portfolio/judah.jpg" alt="Judah">                       
-                        <div class="overlay">
-                        	<div class="portfolio-item-meta">
-          					      <h5>Judah</h5>
-                              <p>Web Design</p>
-          					   </div>
-                        </div>                        
-                     </a>
-
-                  </div>
-          		</div> <!-- /item -->
-
-               <div class="bgrid item">
-                  <div class="item-wrap">
-
-                     <a href="portfolio.html">
-                        <img src="images/portfolio/embossed-paper.jpg" alt="Embossed Paper">
-                        <div class="overlay">
-                        	<div class="portfolio-item-meta">
-          					      <h5>Embossed Paper</h5>
-                              <p>Branding</p>
-          					   </div>
-                        </div>                                                
-                     </a>                   
-
-                  </div>
-          		</div>  <!-- item end -->
+               
 
             </div> <!-- /portfolio-wrapper -->
 
@@ -444,13 +335,13 @@
       		<div class="twelve columns">
 
 		         <div id="team-wrapper" class="bgrid-half mob-bgrid-whole group">
-
+                <?php foreach($data_team->result() as $team):?>
 		            <div class="bgrid member">
 
 		               <div class="member-header">
 
 		                 	<div class="member-pic">
-									<img src="images/team/member01-k.jpg" alt=""/>                        	                       	
+									<img width="200px" height="200px" src="<?php echo base_url()?>upload/team/<?php echo $team->team_avatar?>" alt=""/>                        	                       	
 		                 	</div>
 
 		                  <div class="member-name">
@@ -472,7 +363,7 @@
 		               </ul>
 
 		          	</div> <!-- /member -->
-
+                <?php endforeach;?>
 		            <div class="bgrid member">
 
 		              	<div class="member-header">

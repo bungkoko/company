@@ -35,10 +35,10 @@ if ($this->session->flashdata('message')): ?>
                     <td class="tc"><?php echo ++$offset;?></td>
                     <td><?php echo $data->articles_subject; ?></td>
                     <td><?php echo word_limiter(strip_tags($data->articles_post), 10); ?> [....]</td>
-					<td><?php echo $data->articles_status;?></td>
+					<td><a href="<?php echo site_url('articles/status/'.$data->articles_id.'/'.$data->articles_status)?>"><?php echo $data->articles_status;?></a></td>
                     <td><?php echo $data->articles_date; ?></td>
                     <td class="tc">
-						<a href="<?php //echo site_url('bt-admin/content/update/'.$data->content_id.''); ?>" title="Edit Data"><img src="<?php //echo load_image('user_edit.png');?>" alt="edit data" border="0"></a>
+						<a href="<?php echo site_url('articles/update/'.$data->articles_id.''); ?>" title="Edit Data"><img src="<?php echo base_url();?>/assets/admin/images/user_edit.png" alt="edit data" border="0"></a>
 						<a href="<?php echo site_url('articles/delete/'.$data->articles_id.''); ?>" title="Delete Data"><img src="<?php echo base_url();?>/assets/admin/images/user_delete.png" alt="delete data" border="0"></a></td>
                 </tr>
 				<?php

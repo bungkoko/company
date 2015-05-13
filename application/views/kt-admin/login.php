@@ -6,7 +6,7 @@
 		<link type="text/css" rel="stylesheet" media="all" href="<?php echo base_url();?>assets/admin/css/jquery-ui.css"> 
 		<link type="text/css" rel="stylesheet" media="all" href="<?php echo base_url();?>assets/admin/css/grid.css">
 		<link type="text/css" rel="stylesheet" media="all" href="<?php echo base_url();?>assets/admin/css/visualize.css">
-		<title>Login</title>
+		<title>Administration-<?php echo $page_title;?></title>
 	</head>
 	<body>
 		<div id="login-wrapper">

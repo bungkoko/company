@@ -57,13 +57,14 @@ function add_to_textarea(textareaID, val) {
 <?php endif; ?>
 
 <!-- Start Forms -->
-<form method="post" action="<?php echo site_url('articles/create') ?>">
+
+<form method="post" action="<?php echo current_url(); ?>">
 	<div class="grid_8">
 		<div class="box-header">New Article</div>
 		<div class="box">
 			<div class="row">
 	            <p><label>Subject :</label></p>
-	            <input type="text" name="articles_subject" />
+	            <input type="text" value="<?php echo $get_data->articles_subject;?>" name="articles_subject" />
 	        </div>
 
 			<div class="row">
@@ -72,7 +73,7 @@ function add_to_textarea(textareaID, val) {
 					<input id="media_button" type="button" class="button small" value="Insert Media" onclick="show_media_box()"><input id="editor_toggler" type="button" class="button small" value="Hide Editor" onclick="toggleEditor('content')">
 				</div>
 				<?php //echo load_tiny_mce('content')?>
-	            <textarea id="content" class="tinymce mceEditor" name="articles_post" cols="5" rows="15"></textarea>
+	            <textarea id="content" class="tinymce mceEditor" name="articles_post" cols="5" rows="15"><?php echo $get_data->articles_post;?></textarea>
 	        </div>
 		</div>
 	</div>
@@ -81,8 +82,8 @@ function add_to_textarea(textareaID, val) {
 		<div class="box">
 			<div class="row">
                 <p><label>Publish :</label></p>
-                <input name="articles_status" class="radio" type="radio" value="y" checked="checked"/><label class="radio">Publish</label>
-                <input name="articles_status" class="radio" type="radio" value="n"/><label class="radio">Draft</label>
+                <input name="articles_status" class="radio" type="radio" value="y" <?php echo ($get_data->articles_status=='y')?"checked=\"checked\"":"";?>/ /><label class="radio">Publish</label>
+                <input name="articles_status" class="radio" type="radio" value="n" <?php echo ($get_data->articles_status=='n')?"checked=\"checked\"":"";?>/ checked="checked" /><label class="radio">Draft</label>
                 <br class="cl" />
             </div>
 			<div class="row">

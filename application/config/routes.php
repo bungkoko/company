@@ -50,7 +50,16 @@ $route['kt-admin/dashboard']='user/dashboard';
 // route articles
 $route['kt-admin/articles']='articles';
 $route['kt-admin/articles/create']='articles/create';
+
+// route services
 $route['kt-admin/services']='services';
+
+//route abouts
+$route['kt-admin/abouts']='abouts';
+
+//route portfolio
+
+$route['kt-admin/portfolio']='portfolio';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

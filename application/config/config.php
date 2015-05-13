@@ -363,7 +363,9 @@ $config['proxy_ips'] = '';
 
 /*$config['absolutePathFolder'] = $_SERVER['DOCUMENT_ROOT'].'/homyland';//*.nix*/
 
+$config['pathFolder']=$_SERVER['DOCUMENT_ROOT'].'/company';
 $config['upload_path_portfolio'] = '/upload/portfolio/';
+$config['upload_path_team']='/upload/team/';
 //$config['upload_path_thumb'] = '/assets/gallery/thumb/';
 //$config['upload_path_temp'] = '/assets/temp/';
 

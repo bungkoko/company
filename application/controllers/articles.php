@@ -41,9 +41,9 @@
 				$this->load->library('form_validation');
 				$this->form_validation->set_rules('articles_subject','subject','required');
 				$this->form_validation->set_rules('articles_post','post','required');
-				$this->form_validation->set_rules('articles_publish','publish','required');
+				//$this->form_validation->set_rules('articles_publish','publish','required');
 				if($this->form_validation->run()==true):
-					return $this->articles_model->create();
+					$this->articles_model->create();
 					redirect('kt-admin/articles');
 				else:
 					$data['error']="Semua Field Harus Di isi";
@@ -55,7 +55,47 @@
 		}
 
 		function delete($id){
-			return $this->articles_model->delete_data($id);
+			$this->articles_model->delete_data($id);
+			redirect('kt-admin/articles');
+		}
+
+		function update($id=''){
+			if ($id=='')
+				redirect($this->uri->segment(1).'/'.$this->uri->segment(2));
+
+			$data['page_title']="Update for Articles";
+			if($this->input->post('submit')):
+				$this->load->library('form_validation');
+				$this->form_validation->set_rules('articles_subject','subject','required');
+				$this->form_validation->set_rules('articles_post','post','requred');
+				//$this->form_validation->set_rules('articles_publish','publish','required');
+
+				if($this->form_validation->run()==true):
+
+					$this->articles_model->update($id);
+					$this->session->set_flashdata('message', 'article has been update');
+					redirect('kt-admin/articles');
+				else:
+					$data['error']=validation_errors();
+				endif;
+			endif;
+			$data['get_data']=$this->articles_model->get($id);
+			$data['content']='kt-admin/article/update';
+			$this->load->view('kt-admin/index',$data);
+		}
+
+		function status($id,$status){
+			if($status=='n'):
+				$status='y';
+			else:
+				$status='n';
+			endif;
+
+			$this->db->where('articles_id',$id);
+			$this->db->set('articles_status',$status);
+			$this->db->update('tb_article');
+
+			$this->session->set_flashdata('message','status sudah berubah');
 			redirect('kt-admin/articles');
 		}
 

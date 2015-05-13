@@ -6,7 +6,7 @@
         <link type="text/css" rel="stylesheet" media="all" href="<?php echo base_url();?>assets/admin/css/jquery-ui.css" />
         <link type="text/css" rel="stylesheet" media="all" href="<?php echo base_url();?>assets/admin/css/grid.css" />
         <link type="text/css" rel="stylesheet" media="all" href="<?php echo base_url();?>assets/admin/css/visualize.css" />
-        <title></title>
+        <title>Administrator-<?php echo $page_title;?></title>
         <script type="text/javascript" src="<?php echo base_url();?>assets/admin/js/jquery-1.4.2.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url();?>assets/admin/js/jquery-ui.js"></script>
         <script type="text/javascript" src="<?php echo base_url();?>assets/admin/js/excanvas.js"></script>

@@ -14,6 +14,7 @@
 			$this->login();
 		}
 		function login(){
+			$data['page_title']='Login';
 
 			if($this->session->userdata('user_logged')==true):
 				redirect('kt-admin/dashboard');

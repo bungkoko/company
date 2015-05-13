@@ -73,7 +73,7 @@
 						$this->image_lib->clear();
 
 						$this->portfolio_model->create($portfolio_path);
-						redirect('portfolio');
+						redirect('kt-admin/portfolio');
 					endif;
 				else:
 					$data['error']="Semua Field Harus Di isi";
@@ -89,8 +89,8 @@
 				$file=$dt_portfolio->row()->portfolio_image;
  				
  				//location image
-				$location=$_SERVER['DOCUMENT_ROOT'];
-				$path=$location.'/company/';
+				$path=$this->config->item('pathFolder');
+				//$path=$location.'/company/';
 				
 				//location specific for image
 				$image=$path.$file;
@@ -99,7 +99,7 @@
 				//delete data database
 
 				$this->portfolio_model->delete($id);
-				redirect('portfolio');
+				redirect('kt-admin/portfolio');
 			else:
 				redirect('/');
 			endif;
